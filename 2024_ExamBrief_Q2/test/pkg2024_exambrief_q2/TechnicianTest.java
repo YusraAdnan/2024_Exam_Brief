@@ -31,14 +31,17 @@ public class TechnicianTest {
         double notExpected = 700.0; // wrong expected pay
         double actual = t.CalculatePay("1500", "0.5");
 
+        //This assertion is used when the method being tested is returning a value NOT boolean
         assertNotEquals(notExpected, actual, 0.001);
     }
     @Test
-     public void ValidationTest_InvalidRepairCost() {
+     public void ValidationTest_InvalidRepairCost()
+     {
         // invalid repair cost (0 should fail validation)
         Data d = new Data("Durban", "Alex", 0, 0.5);
         boolean valid = t.ValidateData(d);
 
+        //Assert false is used as this method was returning boolean
         assertFalse("Validation should fail when repair cost is 0", valid);
     }
     

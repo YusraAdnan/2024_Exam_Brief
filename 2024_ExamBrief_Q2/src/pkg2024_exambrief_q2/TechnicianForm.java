@@ -161,7 +161,9 @@ public class TechnicianForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuItem_ProcessReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItem_ProcessReportActionPerformed
-      String location = ComboBox_Location.getSelectedItem().toString();
+    
+        //Get the actual user input to pass the classes and methods
+        String location = ComboBox_Location.getSelectedItem().toString();
      
         String name = TextField_TechnicianName.getText();
 
@@ -171,16 +173,16 @@ public class TechnicianForm extends javax.swing.JFrame {
         
         String output = "";
         
-        //Create the actual object of MovideTicketData class that holds actual values
+        //Create the object of Data class to test the user input validation
         Data data = new Data (location, name, Double.parseDouble(cost), Double.parseDouble(rate));
         
         //To access the 2 methods to calcualte the totals and validations we need to make instance of the class
         Technician tech = new Technician();
         
-        //ValidateData method takes in an object holding values of Movie Tickets
-        if(tech.ValidateData(data) == true)//if the method returns a true that means the data is valid and we can then calculate the total price
+        //ValidateData method takes in an object holding values of Technition data
+        if(tech.ValidateData(data) == true)//if the method returns a true that means the data is valid and we can then calculate the total pay
         {
-           //We can only calculate the total price if the data is valid
+           //We can only calculate the total pay if the data is valid
            double pay = tech.CalculatePay(cost, rate);
            
             output = "Technician Report\n"
@@ -198,6 +200,7 @@ public class TechnicianForm extends javax.swing.JFrame {
             return; //Ends the programs here does not proceed to write wrong data to the text area or text file
         }
 
+        //Set the text area with the report
         jTextArea1.setText(output);
      
     }//GEN-LAST:event_MenuItem_ProcessReportActionPerformed
@@ -206,6 +209,7 @@ public class TechnicianForm extends javax.swing.JFrame {
         
         try
         {
+        //Copy pasted from above 
         String location = ComboBox_Location.getSelectedItem().toString();
      
         String name = TextField_TechnicianName.getText();

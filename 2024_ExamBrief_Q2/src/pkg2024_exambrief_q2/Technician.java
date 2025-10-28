@@ -15,6 +15,8 @@ public class Technician implements ITechnician
     public double CalculatePay(String repairCost, String rate)
     {
         double cost = Double.parseDouble(repairCost);
+        
+        //rate needs to be a percentage (if rate is 4 then it will )
         double r = Double.parseDouble(rate)/100;
         
         double pay = cost * r;
